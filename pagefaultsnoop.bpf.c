@@ -58,7 +58,7 @@ static int pagefault_exit(struct pt_regs *ctx, pf_type_enum pf_type)
 	__u32 pid = pid_tgid >> 32;
 	__u32 tid = (__u32)pid_tgid;
 	struct vm_fault **vmfp, *vmf;
-	struct vm_area_struct *vma;
+	struct vm_area_struct __attribute__((unused)) *vma;
 	struct pagefault_event event = {};
 	int ret;
 	__u64 ts = bpf_ktime_get_ns();
